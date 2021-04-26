@@ -1,8 +1,21 @@
+import { renderHook } from "@testing-library/react-hooks";
 import { useConverter } from "./useConverter";
 
+const course = 42;
+const testRubAmount = 100;
+const calculatedUsdAmount = 2.38;
+
 describe("when rendered", () => {
-  it.todo("Rub input should have a value equal to initial Rub amount");
-  it.todo("Usd input should have a value equal to calculated Usd amount");
+  it("Rub value should be equal to initial Rub amount", () => {
+    const { result } = renderHook(() => useConverter(testRubAmount, course));
+
+    expect(result.current.rub).toEqual(testRubAmount);
+  });
+  it("Usd input should be equal to calculated Usd amount", () => {
+    const { result } = renderHook(() => useConverter(testRubAmount, course));
+
+    expect(result.current.usd).toEqual(calculatedUsdAmount);
+  });
 });
 
 describe("when call an 'updateRub' method", () => {

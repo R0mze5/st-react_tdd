@@ -3,7 +3,7 @@ import styles from "./Converter.module.css";
 import { useConverter } from "./useConverter";
 
 export const Converter: React.FC = () => {
-  const { rub, updateRub, usd, updateUsd } = useConverter();
+  const { rub, updateRub, usd, updateUsd } = useConverter(11, 12);
   return (
     <form className={styles.converter}>
       <label htmlFor="rubId">
