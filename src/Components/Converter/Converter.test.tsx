@@ -16,6 +16,15 @@ jest.mock("./useConverter", () => ({
   },
 }));
 
+function useConverterMock() {
+  return {
+    rub: 100,
+    usd: 2.38,
+    updateRub: mockUpdateRub,
+    updateUsd: mockUpdateUsd,
+  };
+}
+
 describe("when rendered", () => {
   it("rub input should have a value with a rub amount", () => {
     render(<Converter />);
@@ -24,6 +33,18 @@ describe("when rendered", () => {
 
   it("usd input should have a value with a usd amount", () => {
     render(<Converter />);
+    expect(screen.getByLabelText(/Sum in dollars/)).toHaveValue(2.38);
+  });
+});
+
+describe("when rendered with converterHook", () => {
+  it("rub input should have a value with a rub amount", () => {
+    render(<Converter useConverter={useConverterMock} />);
+    expect(screen.getByLabelText(/Sum in rubbles/)).toHaveValue(100);
+  });
+
+  it("usd input should have a value with a usd amount", () => {
+    render(<Converter useConverter={useConverterMock} />);
     expect(screen.getByLabelText(/Sum in dollars/)).toHaveValue(2.38);
   });
 });

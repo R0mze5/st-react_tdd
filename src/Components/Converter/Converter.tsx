@@ -1,8 +1,14 @@
 import React from "react";
 import styles from "./Converter.module.css";
-import { useConverter } from "./useConverter";
+import { useConverter as useConverterHook } from "./useConverter";
 
-export const Converter: React.FC = () => {
+interface IConverterProps {
+  useConverter?: typeof useConverterHook;
+}
+
+export const Converter: React.FC<IConverterProps> = ({
+  useConverter = useConverterHook,
+}) => {
   const { rub, updateRub, usd, updateUsd } = useConverter(11, 12);
   return (
     <form className={styles.converter}>
