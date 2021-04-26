@@ -6,9 +6,9 @@ type TUseConverter = (
   course: number
 ) => {
   rub: number;
-  updateRub: (value: number) => void;
+  updateRub: (value: number | string) => void;
   usd: number;
-  updateUsd: (value: number) => void;
+  updateUsd: (value: number | string) => void;
 };
 
 export const useConverter: TUseConverter = (initialRubValue, course) => {

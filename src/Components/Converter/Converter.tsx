@@ -14,7 +14,7 @@ export const Converter: React.FC = () => {
           min={0}
           step={1}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            updateRub(+e.target.value)
+            updateRub(e.target.value)
           }
           name="rub"
           value={rub}
@@ -29,7 +29,7 @@ export const Converter: React.FC = () => {
           step={1}
           name="usd"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            updateUsd(+e.target.value)
+            updateUsd(e.target.value)
           }
           value={usd}
         />
