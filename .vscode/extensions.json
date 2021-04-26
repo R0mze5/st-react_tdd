@@ -1,0 +1,24 @@
+{
+  "recommendations": [
+    "coenraads.bracket-pair-colorizer-2",
+    "dsznajder.es7-react-js-snippets",
+    "xabikos.javascriptsnippets",
+    "streetsidesoftware.code-spell-checker",
+    "jack89ita.copy-filename",
+    "ms-azuretools.vscode-docker",
+    "mrmlnc.vscode-duplicate",
+    "dbaeumer.vscode-eslint",
+    "github.vscode-pull-request-github",
+    "codezombiech.gitignore",
+    "eamodio.gitlens",
+    "ms-vscode.vscode-typescript-next",
+    "orta.vscode-jest",
+    "andys8.jest-snippets",
+    "eg2.vscode-npm-script",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode",
+    "wallabyjs.quokka-vscode",
+    "visualstudioexptteam.vscodeintellicode"
+  ]
+}

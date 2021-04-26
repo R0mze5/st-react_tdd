@@ -7,7 +7,7 @@ export const Converter: React.FC = () => {
   return (
     <form className={styles.converter}>
       <label htmlFor="rubId">
-        Сумма в рублях
+        Sum in rubbles
         <input
           type="number"
           id="rubId"
@@ -21,7 +21,7 @@ export const Converter: React.FC = () => {
         />
       </label>
       <label htmlFor="usdId">
-        Сумма в долларах
+        Sum in dollars
         <input
           id="usdId"
           type="number"
