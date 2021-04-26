@@ -34,16 +34,34 @@ describe("when call an 'updateRub' method", () => {
 
     act(() => {
       //  When testing, code that causes React state updates should be wrapped into act
-      result.current.updateRub(84);
+      result.current.updateRub(10);
     });
 
-    expect(result.current.usd).toEqual(2);
+    expect(result.current.usd).toEqual(0.24);
   });
 });
 
 describe("when call an 'updateUsd' method", () => {
-  it.todo("should update the Usd value");
-  it.todo("should recalculate the Rub value");
+  it("should update the Usd value", () => {
+    const { result } = renderHook(() => useConverter(testRubAmount, course));
+
+    act(() => {
+      //  When testing, code that causes React state updates should be wrapped into act
+      result.current.updateUsd(10);
+    });
+
+    expect(result.current.usd).toEqual(10);
+  });
+  it("should recalculate the Rub value", () => {
+    const { result } = renderHook(() => useConverter(testRubAmount, course));
+
+    act(() => {
+      //  When testing, code that causes React state updates should be wrapped into act
+      result.current.updateUsd(10);
+    });
+
+    expect(result.current.rub).toEqual(420);
+  });
 });
 
 describe("when re-render", () => {
