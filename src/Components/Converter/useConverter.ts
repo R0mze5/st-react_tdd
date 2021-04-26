@@ -16,20 +16,23 @@ export const useConverter: TUseConverter = (initialRubValue, course) => {
   const [rub, setRub] = useState(initialRubValue);
   const [usd, setUsd] = useState(calculatedUsdAmount);
 
+  const updateValue = (rubValue: number, usdValue: number): void => {
+    setRub(rubValue);
+    setUsd(usdValue);
+  };
+
   const updateRub = (inputRub: number | string): void => {
     const rubValue = Number(inputRub);
-    setRub(rubValue);
-
     const usdValue = rubToUsd(rubValue, course);
-    setUsd(usdValue);
+
+    updateValue(rubValue, usdValue);
   };
 
   const updateUsd = (inputUsd: number | string): void => {
     const usdValue = Number(inputUsd);
-    setUsd(usdValue);
-
     const rubValue = usdToRub(usdValue, course);
-    setRub(rubValue);
+
+    updateValue(rubValue, usdValue);
   };
 
   return { rub, updateRub, usd, updateUsd };
