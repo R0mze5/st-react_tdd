@@ -1,4 +1,4 @@
-import { renderHook } from "@testing-library/react-hooks";
+import { act, renderHook } from "@testing-library/react-hooks";
 import { useConverter } from "./useConverter";
 
 const course = 42;
@@ -19,8 +19,26 @@ describe("when rendered", () => {
 });
 
 describe("when call an 'updateRub' method", () => {
-  it.todo("should update the Rub value");
-  it.todo("should recalculate the Usd value");
+  it("should update the Rub value", () => {
+    const { result } = renderHook(() => useConverter(testRubAmount, course));
+
+    act(() => {
+      //  When testing, code that causes React state updates should be wrapped into act
+      result.current.updateRub(10);
+    });
+
+    expect(result.current.rub).toEqual(10);
+  });
+  it("should recalculate the Usd value", () => {
+    const { result } = renderHook(() => useConverter(testRubAmount, course));
+
+    act(() => {
+      //  When testing, code that causes React state updates should be wrapped into act
+      result.current.updateRub(84);
+    });
+
+    expect(result.current.usd).toEqual(2);
+  });
 });
 
 describe("when call an 'updateUsd' method", () => {
