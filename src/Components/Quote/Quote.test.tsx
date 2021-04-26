@@ -2,20 +2,21 @@ import { render, screen,  } from "@testing-library/react"
 import { Quote } from "./Quote"
 import quotes from './quotes.json'
 
+ 
 describe('when rendered', () => {
-  const testQuote = quotes[0]
+  const quoteStub = quotes[1]
   it('should contain an expected text', () => {
-     render(<Quote/>)
+     render(<Quote quote={quoteStub}/>)
 
-    const result = screen.getByText(testQuote.text)
+    const result = screen.getByText(quoteStub.text)
 
     expect(result).toBeInTheDocument()
   })
 
   it('shoud contain an expected author', () => {
-    render(<Quote/>)
+    render(<Quote quote={quoteStub}/>)
 
-    const result = screen.getByText(new RegExp( testQuote.author))
+    const result = screen.getByText(new RegExp( quoteStub.author))
 
     expect(result  ).toBeInTheDocument()
   })

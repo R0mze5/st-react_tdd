@@ -1,10 +1,12 @@
-import styles from './App.module.css';
-import { Quote } from './Components/Quote';
+import styles from "./App.module.css";
+import { Quote } from "./Components/Quote";
+import { Converter } from "./Components/Converter";
 
-export function App() {
+export function App(): JSX.Element {
   return (
     <main className={styles.main}>
-      <Quote></Quote>
+      <Converter />
+      <Quote />
     </main>
   );
 }
