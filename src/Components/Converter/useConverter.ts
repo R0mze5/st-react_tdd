@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { rubToUsd, usdToRub } from "../../domain/converter";
 
 type TUseConverter = (
@@ -12,9 +12,13 @@ type TUseConverter = (
 };
 
 export const useConverter: TUseConverter = (initialRubValue, course) => {
-  const calculatedUsdAmount = rubToUsd(initialRubValue, course);
   const [rub, setRub] = useState(initialRubValue);
-  const [usd, setUsd] = useState(calculatedUsdAmount);
+  const [usd, setUsd] = useState(rubToUsd(initialRubValue, course));
+
+  useEffect(() => {
+    setRub(initialRubValue);
+    setUsd(rubToUsd(initialRubValue, course));
+  }, [initialRubValue, course]);
 
   const updateValue = (rubValue: number, usdValue: number): void => {
     setRub(rubValue);
