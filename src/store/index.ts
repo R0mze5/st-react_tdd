@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+// eslint-disable-next-line import/no-cycle
 import course from "./features/course/slice";
 
 export const store = configureStore({
@@ -6,5 +7,3 @@ export const store = configureStore({
     course,
   },
 });
-
-export type RootState = ReturnType<typeof store.getState>;
