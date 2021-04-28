@@ -1,3 +1,5 @@
 import { RootState } from "../../types";
 
-export const selectorCourse = (state: RootState): number => state.course.value;
+const getCourseValue = (state: RootState): number => state.course.value;
+
+export const courseSelectors = { getCourseValue };

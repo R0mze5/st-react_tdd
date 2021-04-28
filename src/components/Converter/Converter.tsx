@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectorCourse } from "../../store/features/course/selectors";
+import { courseSelectors } from "../../store/features/course";
 import styles from "./Converter.module.css";
 import { useConverter as useConverterHook } from "./useConverter";
 
@@ -11,7 +11,7 @@ interface IConverterProps {
 export const Converter: React.FC<IConverterProps> = ({
   useConverter = useConverterHook,
 }) => {
-  const initialCourseValue = useSelector(selectorCourse);
+  const initialCourseValue = useSelector(courseSelectors.getCourseValue);
   const { rub, updateRub, usd, updateUsd } = useConverter(
     11,
     initialCourseValue

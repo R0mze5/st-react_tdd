@@ -1,6 +1,6 @@
 import { initialCourseState } from "../initialState";
 
-export function fetchTodayCoursePending<T = typeof initialCourseState>(
+export function fetchTodayCourseLoading<T = typeof initialCourseState>(
   state: T
 ): T {
   return {
