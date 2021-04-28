@@ -4,11 +4,16 @@ import { initialCourseState } from "./initialState";
 import { fetchTodayCourseFailure } from "./reducers/failure";
 import { fetchTodayCourseLoading } from "./reducers/loading";
 import { fetchTodayCourseSuccess } from "./reducers/success";
+import { fetchTodayCourseResetStatus } from "./reducers/resetStatus";
+
+import { courseActions } from "./actions";
 
 const courseSlice = createSlice({
   name: "course",
   initialState: initialCourseState,
-  reducers: {},
+  reducers: {
+    [courseActions.courseResetStatusAction.toString()]: fetchTodayCourseResetStatus,
+  },
   extraReducers: {
     [fetchTodayCourse.pending.toString()]: fetchTodayCourseLoading,
     [fetchTodayCourse.fulfilled.toString()]: fetchTodayCourseSuccess,

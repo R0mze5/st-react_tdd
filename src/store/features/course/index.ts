@@ -1,6 +1,3 @@
-import courseReducer from "./slice";
-
 export { initialCourseState } from "./initialState";
 export { courseSelectors } from "./selectors";
-
-export { courseReducer };
+export { courseActions } from "./actions";

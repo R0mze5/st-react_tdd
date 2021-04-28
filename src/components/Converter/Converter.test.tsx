@@ -43,7 +43,7 @@ describe("when rendered", () => {
   });
 
   it("should call 'useConverter hook with value from the store", () => {
-    const stateMock = { course: { value: 521 } };
+    const stateMock = { course: { value: 521, status: null } };
 
     renderWithStore(<Converter useConverter={useConverterMock} />, {
       state: stateMock,

@@ -4,7 +4,7 @@ import { CurrentCourse } from "./CurrentCourse";
 
 describe("when rendered with a course value", () => {
   it("shoul contain value in the body", () => {
-    const stateMock = { course: { value: 10000 } };
+    const stateMock = { course: { value: 10000, status: null } };
     renderWithStore(<CurrentCourse />, { state: stateMock });
 
     expect(screen.getByText(/10000Rub/)).toBeInTheDocument();

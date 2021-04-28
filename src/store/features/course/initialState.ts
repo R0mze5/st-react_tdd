@@ -1,6 +1,8 @@
+import { TLoadingStatus } from "../../../@types/statuses";
+
 export const initialCourseState: {
   value: number;
-  status: "loading" | "success" | "failure" | null;
+  status: TLoadingStatus;
 } = {
   value: 42,
   status: null,
