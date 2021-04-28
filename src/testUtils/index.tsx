@@ -3,7 +3,8 @@ import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import { applyMiddleware, combineReducers, createStore } from "redux";
 
-import course, { initialCourseState } from "../store/features/course/slice";
+import course from "../store/features/course/slice";
+import { initialCourseState } from "../store/features/course/initialState";
 
 const reducer = combineReducers({
   course,
