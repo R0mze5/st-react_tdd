@@ -1,6 +1,6 @@
 import { createAction } from "@reduxjs/toolkit";
 
-const courseResetStatusAction = createAction<number, "course->RESET_STATUS">(
+const courseResetStatusAction = createAction<void, "course->RESET_STATUS">(
   "course->RESET_STATUS"
 );
 

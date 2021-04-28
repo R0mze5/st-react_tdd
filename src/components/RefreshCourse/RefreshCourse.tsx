@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { courseSelectors } from "../../store/features/course";
+import { courseActions, courseSelectors } from "../../store/features/course";
+import { fetchTodayCourse } from "../../store/features/course/asyncActions";
 
 import styles from "./RefreshCourse.module.css";
 
@@ -11,11 +12,9 @@ export const RefreshCourse: React.FC = () => {
 
   useEffect(() => {
     if (loadingStatus === "success") {
-      console.log("reset status");
+      dispatch(courseActions.courseResetStatusAction());
     }
   }, [loadingStatus]);
-
-  // console.log(loadingStatus);
 
   return (
     <>
@@ -23,7 +22,7 @@ export const RefreshCourse: React.FC = () => {
         disabled={loadingStatus === "loading"}
         className={styles.button}
         type="button"
-        onClick={console.log}
+        onClick={() => dispatch(fetchTodayCourse())}
       >
         {loadingStatus === "loading" ? "refreshing..." : "refresh course"}
       </button>

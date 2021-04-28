@@ -34,7 +34,8 @@ export function renderWithStore(
     if (dispatch) {
       dispatch(action);
     }
-    return next(action);
+
+    next(action);
   };
   const middleware = applyMiddleware(thunk, observer);
   const storeMock = createStore(reducer, state, middleware);
